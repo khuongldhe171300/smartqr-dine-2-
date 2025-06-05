@@ -1,8 +1,13 @@
-
 "use client";
+import { Suspense } from "react";
+import SubscriptionSuccess from "@/components/subscription-success";
+
 export const dynamic = "force-dynamic";
-import SubscriptionSuccess from "@/components/subscription-success"
 
 export default function SubscriptionSuccessPage() {
-    return <SubscriptionSuccess />
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <SubscriptionSuccess />
+        </Suspense>
+    );
 }
