@@ -1,6 +1,6 @@
 // lib/loginApi.ts
-export async function loginApi(email: string, password: string,) {
-    const res = await fetch("https://localhost:7082/api/Auth/login", {
+export async function loginApi(email: string, password: string) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Auth/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -15,3 +15,4 @@ export async function loginApi(email: string, password: string,) {
 
     return res.json(); // { token, userId, role }
 }
+

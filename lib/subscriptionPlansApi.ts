@@ -1,13 +1,11 @@
 export async function fetchAllSubscriptionPlans() {
     try {
-        const res = await fetch("https://localhost:7082/api/Subscriptions/plans", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Subscriptions/plans`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
             },
         });
-
-        console.log("Response status:", res.status)
 
         if (!res.ok) {
             const errorText = await res.text();
@@ -19,12 +17,10 @@ export async function fetchAllSubscriptionPlans() {
         console.error("Lỗi khi fetch gói đăng ký:", err);
         throw err;
     }
-
-
 }
 
-import axios from 'axios';
 
+import axios from "axios";
 
 export async function updateSubscriptionPlan(id: number, planData: {
     planName: string;
@@ -35,14 +31,15 @@ export async function updateSubscriptionPlan(id: number, planData: {
     maxMenuItems: number;
     features: string[];
 }) {
-    const response = await axios.put(`https://localhost:7082/api/Subscriptions/plans/${id}`, planData);
+    const response = await axios.put(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Subscriptions/plans/${id}`,
+        planData
+    );
     return response.data;
 }
 
-
 export async function fetchSubscriptionPlanById(id: number) {
-    const res = await fetch(`https://localhost:7082/api/Subscriptions/plans/${id}`)
-    if (!res.ok) throw new Error("Không thể lấy gói đăng ký")
-    return res.json()
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Subscriptions/plans/${id}`);
+    if (!res.ok) throw new Error("Không thể lấy gói đăng ký");
+    return res.json();
 }
-

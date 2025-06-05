@@ -92,7 +92,7 @@ export default function RestaurantMenu() {
   useEffect(() => {
     const loadCategories = async () => {
       try {
-        const res = await fetch(`https://localhost:7082/api/Menu/categories`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Menu/categories`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

@@ -1,5 +1,3 @@
-// lib/tableApi.ts
-
 export interface TableOrderInfo {
     orderId: number;
     customerName: string;
@@ -21,7 +19,7 @@ export interface RestaurantTable {
 }
 
 export async function fetchRestaurantTables(): Promise<RestaurantTable[]> {
-    const res = await fetch("https://localhost:7082/api/Tables", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Tables`, {
         method: "GET",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -37,7 +35,7 @@ export async function fetchRestaurantTables(): Promise<RestaurantTable[]> {
 }
 
 export async function addTable(formData: FormData) {
-    const res = await fetch("https://localhost:7082/api/Tables", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Tables`, {
         method: "POST",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -47,7 +45,7 @@ export async function addTable(formData: FormData) {
 
     if (!res.ok) {
         const err = await res.text();
-        throw new Error(err || "Không thể thêm ban");
+        throw new Error(err || "Không thể thêm bàn");
     }
 
     return res.json(); // { message, itemId }

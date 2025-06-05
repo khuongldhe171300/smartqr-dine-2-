@@ -8,7 +8,9 @@ export interface DashboardStats {
 }
 
 export const fetchDashboardStats = async (): Promise<DashboardStats> => {
-    const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "";
-    const { data } = await axios.get<DashboardStats>(`https://localhost:7082/api/Admin/dashboard/stats`);
+    const api = axios.create({
+        baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    });
+    const { data } = await api.get<DashboardStats>(`/api/Admin/dashboard/stats`);
     return data;
 };

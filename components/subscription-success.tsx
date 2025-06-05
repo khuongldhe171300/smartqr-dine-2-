@@ -132,7 +132,7 @@ export default function SubscriptionSuccess() {
 
                     console.log("Fetching restaurant info...")
 
-                    const response = await fetch("https://localhost:7082/api/Restaurant/owner", {
+                    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Restaurant/owner`, {
                         headers: {
                             Authorization: `Bearer ${token}`,
                             "Content-Type": "application/json",

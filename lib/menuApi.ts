@@ -2,12 +2,12 @@
 
 
 export async function fetchMenuItems() {
-    const res = await fetch("https://localhost:7082/api/Menu/items", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Menu/items`, {
+        method: "GET",
         headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
     });
-
     if (!res.ok) {
         const error = await res.text();
         throw new Error(error || "Không thể tải danh sách món ăn");

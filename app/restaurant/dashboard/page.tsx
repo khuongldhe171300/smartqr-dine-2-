@@ -30,7 +30,7 @@ export default function RestaurantDashboard() {
         const token = localStorage.getItem("token");
         if (!token) throw new Error("Bạn chưa đăng nhập!");
 
-        const res = await fetch("https://localhost:7082/api/Restaurant/stats-today", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Restaurant/stats-today`, {
           headers: {
             "Authorization": `Bearer ${token}`,
           },

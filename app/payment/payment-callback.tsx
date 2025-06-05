@@ -91,12 +91,13 @@ export default function PaymentCallback() {
 
                         console.log("Calling API with query string:", queryString)
 
-                        const response = await fetch(`https://localhost:7082/api/Payment/PaymentBackReturnUrl?${queryString}`, {
+                        const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Payment/PaymentBackReturnUrl?${queryString}`, {
                             method: "GET",
                             headers: {
                                 "Content-Type": "application/json",
                             },
-                        })
+                        });
+
 
                         console.log("API Response status:", response.status)
 

@@ -105,9 +105,8 @@ export default function OrderPage() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const res = await fetch(
-          `https://localhost:7082/api/Menu/${restaurantId}/menu`
-        )
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Menu/${restaurantId}/menu`);
+
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
 
         const data = await res.json()
@@ -135,13 +134,15 @@ export default function OrderPage() {
     const fetchTable = async () => {
       try {
         const res = await fetch(
-          `https://localhost:7082/api/Menu/${restaurantId}/tables/${tableNumber}`
-        )
-        if (!res.ok) setTableValid(false)
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Menu/${restaurantId}/tables/${tableNumber}`
+        );
+
+        if (!res.ok) setTableValid(false);
       } catch {
-        setTableValid(false)
+        setTableValid(false);
       }
-    }
+    };
+
 
     fetchMenu()
     fetchTable()
