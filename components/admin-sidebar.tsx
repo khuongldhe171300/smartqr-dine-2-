@@ -24,8 +24,8 @@ const sidebarItems = [
     icon: Package,
   },
   {
-    title: "Thanh toán",
-    href: "/admin/payments",
+    title: "Tin tức",
+    href: "/admin/blogPost",
     icon: CreditCard,
   },
   {

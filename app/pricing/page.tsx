@@ -191,7 +191,7 @@ export default function PricingPage() {
         <div className="container px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Câu hỏi thường gặp</h2>
-            <p className="text-gray-600 text-lg">Giải đáp những thắc mắc phổ biến về dịch vụ SmartQR Dine</p>
+            <p className="text-gray-600 text-lg">Giải đáp những thắc mắc phổ biến về dịch vụ Quét là xong</p>
           </div>
           <div className="mx-auto max-w-3xl space-y-8">
             <div className="space-y-3">
@@ -211,7 +211,7 @@ export default function PricingPage() {
             <div className="space-y-3">
               <h3 className="text-xl font-bold">Có cần thiết bị phần cứng đặc biệt nào không?</h3>
               <p className="text-gray-600 leading-relaxed">
-                Không, SmartQR Dine hoạt động hoàn toàn trên nền tảng web. Bạn chỉ cần in mã QR và đặt trên bàn. Khách
+                Không, Quét là xong hoạt động hoàn toàn trên nền tảng web. Bạn chỉ cần in mã QR và đặt trên bàn. Khách
                 hàng sử dụng điện thoại thông minh của họ để quét mã.
               </p>
             </div>
@@ -232,6 +232,7 @@ export default function PricingPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/register">
                 <Button
+                  variant="outline"
                   size="lg"
                   className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg font-semibold"
                 >
@@ -242,7 +243,7 @@ export default function PricingPage() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg font-semibold"
+                  className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg font-semibold"
                 >
                   Liên hệ tư vấn
                 </Button>

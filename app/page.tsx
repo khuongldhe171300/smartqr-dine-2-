@@ -66,9 +66,9 @@ export default function Home() {
             <div className="relative">
               <div className="relative overflow-hidden rounded-2xl border-8 border-white bg-white shadow-2xl">
                 <Image
-                  src="https://sdmntprwestus2.oaiusercontent.com/files/00000000-1268-61f8-925f-850ed1fb43a4/raw?se=2025-06-05T00%3A06%3A57Z&sp=r&sv=2024-08-04&sr=b&scid=0eb9e8d8-530f-57c6-a7dc-dff53347b692&skoid=c156db82-7a33-468f-9cdd-06af263ceec8&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-04T22%3A53%3A03Z&ske=2025-06-05T22%3A53%3A03Z&sks=b&skv=2024-08-04&sig=WcdNbrPwatTx3Q47iizigaQZ7TpQikgGIfEfmyItY7M%3D"
-                  alt="SmartQR Dine Demo"
-                  width={600}
+                  src="https://dorabot.io/quet-ma-qr-code-online-mien-phi/assets/images/qr-code-scanner-online-1.jpg"
+                  alt="Quét là xong Demo"
+                  width={700}
                   height={600}
                   className="rounded-xl object-cover"
                 />
@@ -115,7 +115,7 @@ export default function Home() {
                 Tính năng nổi bật
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Tại sao nên chọn SmartQR Dine?
+                Tại sao nên chọn Quét là xong?
               </h2>
               <p className="max-w-3xl text-gray-600 text-lg leading-relaxed">
                 Giải pháp toàn diện giúp tối ưu quy trình phục vụ và nâng cao trải nghiệm khách hàng
@@ -256,7 +256,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                "SmartQR Dine đã giúp nhà hàng chúng tôi tăng hiệu quả phục vụ 40%. Khách hàng rất thích sự tiện lợi và
+                "Quét là xong đã giúp nhà hàng chúng tôi tăng hiệu quả phục vụ 40%. Khách hàng rất thích sự tiện lợi và
                 không cần chờ đợi."
               </p>
               <div className="flex items-center gap-3">
@@ -274,7 +274,7 @@ export default function Home() {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                "Doanh thu tăng 25% sau khi sử dụng SmartQR Dine. Hệ thống gợi ý món ăn rất thông minh và hiệu quả."
+                "Doanh thu tăng 25% sau khi sử dụng Quét là xong. Hệ thống gợi ý món ăn rất thông minh và hiệu quả."
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-orange-100"></div>
@@ -315,12 +315,13 @@ export default function Home() {
                 Sẵn sàng chuyển đổi số?
               </h2>
               <p className="max-w-3xl text-xl leading-relaxed text-orange-100">
-                Tham gia cùng 500+ nhà hàng đã tin dùng SmartQR Dine. Dùng thử miễn phí 14 ngày, không cần thẻ tín dụng.
+                Tham gia cùng 500+ nhà hàng đã tin dùng Quét là xong. Dùng thử miễn phí 14 ngày, không cần thẻ tín dụng.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/register">
                 <Button
+                  variant="outline"
                   size="lg"
                   className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg font-semibold shadow-lg"
                 >
@@ -331,7 +332,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-2 border-white text-white hover:bg-white hover:text-orange-600 px-8 py-4 text-lg font-semibold"
+                  className="bg-white text-orange-600 hover:bg-orange-50 px-8 py-4 text-lg font-semibold shadow-lg"
                 >
                   Liên hệ tư vấn
                 </Button>
