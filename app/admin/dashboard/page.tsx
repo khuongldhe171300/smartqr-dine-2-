@@ -125,10 +125,10 @@ export default function AdminDashboard() {
               <CardContent>
                 <div className="space-y-4">
                   {[
-                    { name: "Nhà hàng ABC", plan: "Premium", date: "2024-01-15", status: "active" },
-                    { name: "Quán cà phê XYZ", plan: "Standard", date: "2024-01-14", status: "trial" },
-                    { name: "Chuỗi FastFood", plan: "Premium", date: "2024-01-13", status: "active" },
-                    { name: "Quán ăn 123", plan: "Basic", date: "2024-01-12", status: "pending" },
+                    { name: "Bún Bò Hoàng Huế", plan: "Normal", date: "2025-06-16", status: "active" },
+                    { name: "Quán Nhậu Mạnh Hùng", plan: "Basic", date: "2025-06-16", status: "active" },
+                    { name: "Phở bò Nam Định", plan: "Basic", date: "2025-06-14", status: "active" },
+                    { name: "Vượng Quán", plan: "Vip", date: "2025-06-14", status: "active" },
                   ].map((customer, index) => (
                     <div key={index} className="flex items-center justify-between">
                       <div>
@@ -170,15 +170,15 @@ export default function AdminDashboard() {
                   {[
                     {
                       title: "Không thể cập nhật menu",
-                      customer: "Nhà hàng ABC",
+                      customer: "Cơm Việt",
                       priority: "high",
-                      time: "2 giờ trước",
+                      time: "12 giờ trước",
                     },
                     {
                       title: "Yêu cầu nâng cấp gói",
-                      customer: "Quán cà phê XYZ",
+                      customer: "Cơm Tấm Sài Gòn",
                       priority: "medium",
-                      time: "4 giờ trước",
+                      time: "14 giờ trước",
                     },
                     {
                       title: "Hướng dẫn sử dụng QR",

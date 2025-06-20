@@ -9,12 +9,8 @@ import { TrendingUp, DollarSign, Building2, Users, Download, Calendar } from "lu
 
 export default function AdminReports() {
   const revenueData = [
-    { month: "Tháng 1", revenue: 1200000000, customers: 234, growth: 12 },
-    { month: "Tháng 2", revenue: 1350000000, customers: 267, growth: 15 },
-    { month: "Tháng 3", revenue: 1180000000, customers: 221, growth: -8 },
-    { month: "Tháng 4", revenue: 1420000000, customers: 289, growth: 18 },
-    { month: "Tháng 5", revenue: 1580000000, customers: 312, growth: 22 },
-    { month: "Tháng 6", revenue: 1650000000, customers: 334, growth: 25 },
+
+    { month: "Tháng 6", revenue: 2485000, customers: 16, growth: 160 },
   ]
 
   const topCustomers = [
@@ -77,8 +73,8 @@ export default function AdminReports() {
                 <DollarSign className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">₫8.38B</div>
-                <p className="text-xs text-muted-foreground">+18% so với 6 tháng trước</p>
+                <div className="text-2xl font-bold">₫2.485.000</div>
+                <p className="text-xs text-muted-foreground">+16.8% so với tháng trước</p>
               </CardContent>
             </Card>
             <Card>
@@ -87,8 +83,8 @@ export default function AdminReports() {
                 <Building2 className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">1,657</div>
-                <p className="text-xs text-muted-foreground">+15% so với 6 tháng trước</p>
+                <div className="text-2xl font-bold">16</div>
+                <p className="text-xs text-muted-foreground">+160% so với tháng trước</p>
               </CardContent>
             </Card>
             <Card>
@@ -97,8 +93,8 @@ export default function AdminReports() {
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">1,234</div>
-                <p className="text-xs text-muted-foreground">74.5% tổng khách hàng</p>
+                <div className="text-2xl font-bold">6</div>
+                <p className="text-xs text-muted-foreground">44.5% tổng khách hàng</p>
               </CardContent>
             </Card>
             <Card>
@@ -161,19 +157,19 @@ export default function AdminReports() {
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
                         <span>Doanh thu trung bình/tháng</span>
-                        <span className="font-bold">{formatCurrency(1396666667)}</span>
+                        <span className="font-bold">{formatCurrency(207083)}</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>Doanh thu/khách hàng TB</span>
-                        <span className="font-bold">{formatCurrency(5056000)}</span>
+                        <span className="font-bold">{formatCurrency(155312)}</span>
                       </div>
                       <div className="flex justify-between items-center">
-                        <span>Tăng trưởng 6 tháng</span>
-                        <Badge className="bg-green-500">+18%</Badge>
+                        <span>Tăng trưởng tháng 6</span>
+                        <Badge className="bg-green-500">+160%</Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>Dự báo tháng tới</span>
-                        <span className="font-bold text-green-600">{formatCurrency(1750000000)}</span>
+                        <span className="font-bold text-green-600">{formatCurrency(12500000)}</span>
                       </div>
                     </div>
                   </CardContent>

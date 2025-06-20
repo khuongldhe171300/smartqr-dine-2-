@@ -18,31 +18,32 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   // Mock data - trong thực tế sẽ fetch từ database
   const post = {
     id: 1,
-    title: "10 Xu hướng công nghệ nhà hàng sẽ thống trị năm 2024",
+    title: "Vì sao “Quét Là Xong” phù hợp với nhà hàng vừa và lớn?",
     content: `
-      <p>Ngành công nghiệp nhà hàng đang trải qua một cuộc cách mạng số hóa mạnh mẽ. Với sự phát triển của công nghệ, các nhà hàng đang tìm cách tối ưu hóa hoạt động và nâng cao trải nghiệm khách hàng.</p>
-      
-      <h2>1. Menu QR Code - Xu hướng không thể thiếu</h2>
-      <p>Menu QR code đã trở thành tiêu chuẩn mới trong ngành F&B. Không chỉ giúp giảm chi phí in ấn, menu QR còn cho phép cập nhật thông tin món ăn theo thời gian thực và cung cấp trải nghiệm tương tác phong phú cho khách hàng.</p>
-      
-      <h2>2. Hệ thống đặt món tự động</h2>
-      <p>Việc tự động hóa quy trình đặt món giúp giảm thiểu sai sót và tăng tốc độ phục vụ. Khách hàng có thể tự đặt món thông qua điện thoại mà không cần chờ đợi nhân viên.</p>
-      
-      <h2>3. Thanh toán không tiếp xúc</h2>
-      <p>Thanh toán qua ví điện tử, thẻ contactless và QR code đang ngày càng phổ biến, đặc biệt sau đại dịch COVID-19.</p>
-      
-      <h2>4. Phân tích dữ liệu khách hàng</h2>
-      <p>Việc thu thập và phân tích dữ liệu khách hàng giúp nhà hàng hiểu rõ hơn về sở thích, thói quen tiêu dùng để đưa ra các chiến lược kinh doanh phù hợp.</p>
-      
-      <h2>5. Trí tuệ nhân tạo trong dự đoán nhu cầu</h2>
-      <p>AI giúp dự đoán nhu cầu nguyên liệu, tối ưu hóa menu và cá nhân hóa trải nghiệm cho từng khách hàng.</p>
+     <p>Ngành công nghiệp nhà hàng đang trải qua một cuộc cách mạng số hóa mạnh mẽ. Với sự phát triển của công nghệ, các nhà hàng đang tìm cách tối ưu hóa hoạt động và nâng cao trải nghiệm khách hàng.</p>
+
+<h2>1. Giảm tải cho nhân viên – Duy trì hiệu suất cao giờ cao điểm</h2>
+<p>Ở các nhà hàng quy mô lớn, chỉ cần 5–10 bàn gọi món cùng lúc là nhân viên đã dễ bị quá tải. Với giải pháp “Quét Là Xong”, khách hàng chủ động xem menu và gọi món qua QR code. Đơn hàng được chuyển trực tiếp đến bếp, giảm sai sót truyền đạt và giúp nhân viên tập trung phục vụ, kiểm tra chất lượng. Nhờ đó, nhà hàng duy trì hiệu suất cao mà không cần tuyển thêm người.</p>
+
+<h2>2. Tăng tốc độ phục vụ – Trải nghiệm khách hàng mượt mà hơn</h2>
+<p>Khách hàng không còn phải chờ đợi menu giấy, nhân viên ghi order hay xếp hàng thanh toán. Tất cả được thực hiện nhanh chóng ngay trên smartphone với một mã QR duy nhất. Từ đặt món, thanh toán, đến theo dõi trạng thái đơn hàng – mọi thao tác chỉ trong vài chạm, mang đến trải nghiệm hiện đại và tiết kiệm thời gian.</p>
+
+<h2>3. Quản lý đơn hàng và doanh thu theo thời gian thực</h2>
+<p>Các nhà hàng lớn thường gặp khó khăn khi kiểm soát doanh thu, đánh giá hiệu suất nhân viên và xác định món bán chạy. “Quét Là Xong” cung cấp dashboard quản lý real-time, báo cáo doanh thu theo ca/ngày/tháng, và thống kê chi tiết từng đơn hàng. Nhờ đó, chủ quán có thể ra quyết định chính xác, kịp thời và dễ dàng mở rộng quy mô.</p>
+
+<h2>4. Tích hợp ưu đãi – Tăng khả năng giữ chân khách hàng</h2>
+<p>“Quét Là Xong” giúp các nhà hàng triển khai linh hoạt các chương trình ưu đãi như khuyến mãi giờ vàng, combo theo mùa, hay chương trình thành viên. Hệ thống có thể tự động hiển thị ưu đãi theo từng bàn, từng khung giờ; gợi ý combo thông minh khi khách gọi món, tích điểm không cần thẻ cứng – tất cả được số hóa hoàn toàn.</p>
+
+<h2>5. Dễ dàng mở rộng và quản lý tập trung nhiều chi nhánh</h2>
+<p>Giải pháp cho phép các chuỗi nhà hàng hoặc mô hình nhượng quyền sử dụng chung một hệ thống. Chủ quán có thể quản lý toàn bộ chi nhánh từ xa qua một tài khoản duy nhất, đồng bộ menu, chương trình ưu đãi và kiểm soát hoạt động mọi lúc, mọi nơi.</p>
+
     `,
     excerpt:
-      "Khám phá những xu hướng công nghệ mới nhất đang thay đổi ngành F&B và cách SmartQR Dine dẫn đầu cuộc cách mạng số hóa.",
-    image: "/placeholder.svg?height=400&width=800",
-    author: "Nguyễn Văn A",
-    date: "15 Tháng 1, 2024",
-    category: "Công nghệ",
+      "Vì sao “Quét là Xong” phù hợp với nhà hàng vừa và lớn?",
+    image: "https://photo2.tinhte.vn/data/attachment-files/2023/04/6395149_cover_qr-code.jpg?height=400&width=800",
+    author: "Admin",
+    date: "14 Tháng 6, 2025",
+    category: "QR Menu",
     readTime: "5 phút đọc",
     tags: ["QR Code", "Công nghệ", "Nhà hàng", "Số hóa"],
   }
@@ -50,15 +51,15 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
   const relatedPosts = [
     {
       id: 2,
-      title: "Cách tăng doanh thu nhà hàng 30% với QR Code Menu",
-      image: "/placeholder.svg?height=200&width=300",
-      date: "12 Tháng 1, 2024",
+      title: "Top 5 khó khăn khiến nhà hàng nhỏ chưa thể số hoá",
+      image: "https://i.ibb.co/x8t8DGTx/06d79ca3-90f1-4e7d-843b-70fb7fdbede2.jpg?height=200&width=300",
+      date: "17 Tháng 6, 2025",
     },
     {
       id: 3,
-      title: "Hướng dẫn thiết lập hệ thống đặt món thông minh",
-      image: "/placeholder.svg?height=200&width=300",
-      date: "10 Tháng 1, 2024",
+      title: "Hướng Dẫn Sử Dụng QR Menu Cho Nhà Hàng",
+      image: "https://image.plo.vn/w1000/Uploaded/2025/vrwqqxjwp/2022_12_08/quet-qr-code-1949.jpg.webp?height=200&width=300",
+      date: "05 Tháng 6, 2026",
     },
   ]
 

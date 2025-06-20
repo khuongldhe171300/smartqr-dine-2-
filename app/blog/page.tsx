@@ -16,7 +16,7 @@ interface BlogPost {
   title: string
   excerpt: string
   content?: string
-  featuredImageURL: string
+  featuredImageUrl: string
   publishedAt: string
   author?: string
   categoryIds: string
@@ -110,7 +110,7 @@ export default function BlogPage() {
               <div className="grid grid-cols-1 lg:grid-cols-2">
                 <div className="relative h-64 lg:h-auto">
                   <Image
-                    src={featuredPost.featuredImageURL || "/placeholder.svg"}
+                    src={featuredPost.featuredImageUrl || "/placeholder.svg"}
                     alt={featuredPost.title}
                     fill
                     className="object-cover"
@@ -188,11 +188,13 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredPosts.map((post) => (
               <Card key={post.postId} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative h-48">
+                <div className=" ">
                   <Image
-                    src={post.featuredImageURL || "/placeholder.svg"}
+                    src={post.featuredImageUrl || "https://ibb.co/Fqm5K004"}
                     alt={post.title}
-                    fill
+                    width={480}
+                    height={300}
+
                     className="object-cover"
                   />
                 </div>
