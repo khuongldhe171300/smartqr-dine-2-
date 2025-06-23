@@ -105,36 +105,54 @@ export default function OrderPage() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Menu/${restaurantId}/menu`);
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Menu/${restaurantId}/menu`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
+        );
 
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
 
-        const data = await res.json()
+        const data = await res.json();
         const normalized = data.map((item: any) => ({
           id: item.itemId,
           name: item.name,
           description: item.description,
           price: item.price,
-          image: item.imageUrl || '/placeholder.svg',
-          categoryName: item.categoryName || 'Khác',
+          image: item.imageUrl || "/placeholder.svg",
+          categoryName: item.categoryName || "Khác",
           rating: 4.5,
-          prepTime: '15 phút'
-        }))
+          prepTime: "15 phút",
+        }));
 
-        const categorySet = new Set<string>()
-        normalized.forEach((item: MenuItem) => categorySet.add(item.categoryName))
-        setCategories(Array.from(categorySet))
+        const categorySet = new Set<string>();
+        normalized.forEach((item: MenuItem) =>
+          categorySet.add(item.categoryName)
+        );
+        setCategories(Array.from(categorySet));
 
-        setMenuItems(normalized)
+        setMenuItems(normalized);
       } catch (error) {
-        console.error('Lỗi lấy menu:', error)
+        console.error("Lỗi lấy menu:", error);
       }
-    }
+    };
 
     const fetchTable = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Menu/${restaurantId}/tables/${tableNumber}`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Menu/${restaurantId}/tables/${tableNumber}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "ngrok-skip-browser-warning": "true",
+            },
+          }
         );
 
         if (!res.ok) setTableValid(false);
@@ -143,18 +161,18 @@ export default function OrderPage() {
       }
     };
 
-
-    fetchMenu()
-    fetchTable()
-  }, [restaurantId, tableNumber])
+    fetchMenu();
+    fetchTable();
+  }, [restaurantId, tableNumber]);
 
   if (!tableValid) {
     return (
       <div className="min-h-screen flex items-center justify-center text-center text-red-600 text-xl font-semibold">
         Bàn không hợp lệ hoặc không tồn tại trong nhà hàng này!
       </div>
-    )
+    );
   }
+
 
   return (
     <div className="min-h-screen bg-gray-50">

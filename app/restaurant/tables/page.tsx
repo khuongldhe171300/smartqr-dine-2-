@@ -51,6 +51,7 @@ export default function RestaurantTables() {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Tables`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "ngrok-skip-browser-warning": "true"
           },
         })
         if (!res.ok) throw new Error("Không thể tải danh sách bàn")
@@ -75,6 +76,7 @@ export default function RestaurantTables() {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "ngrok-skip-browser-warning": "true"
         },
         body: formData,
       })

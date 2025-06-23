@@ -40,33 +40,38 @@ export default function BlogPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [featuredRes, listRes, categoryRes, tagRes] = await Promise.all([
-          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/top-viewed`),
-          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/GetAll`),
-          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/categories-blog`),
-          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/tags-blog`)
-        ])
+        const headers = {
+          "ngrok-skip-browser-warning": "true",
+        };
 
-        setFeaturedPost(featuredRes.data)
-        setBlogPosts(listRes.data)
-        setCategories(categoryRes.data)
+        const [featuredRes, listRes, categoryRes, tagRes] = await Promise.all([
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/top-viewed`, { headers }),
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/GetAll`, { headers }),
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/categories-blog`, { headers }),
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/tags-blog`, { headers }),
+        ]);
+
+        setFeaturedPost(featuredRes.data);
+        setBlogPosts(listRes.data);
+        setCategories(categoryRes.data);
 
         const categoryMap = Object.fromEntries(
           categoryRes.data.map((c: any) => [c.categoryId, c.name])
-        )
+        );
         const tagMap = Object.fromEntries(
           tagRes.data.map((t: any) => [t.tagId, t.name])
-        )
+        );
 
-        setCategoriesMap(categoryMap)
-        setTagsMap(tagMap)
+        setCategoriesMap(categoryMap);
+        setTagsMap(tagMap);
       } catch (error) {
-        console.error("Lỗi khi gọi API:", error)
+        console.error("Lỗi khi gọi API:", error);
       }
-    }
+    };
 
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
+
 
   const getCategoryName = (idsString: string): string => {
     try {

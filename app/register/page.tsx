@@ -65,23 +65,31 @@ export default function RegisterPage() {
 
     setLoading(true);
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Auth/register-customer`, {
-        email: form.email,
-        password: form.password,
-        firstName: form.firstName,
-        lastName: form.lastName,
-        phoneNumber: form.phoneNumber,
-        name: form.name,
-        description: form.description,
-        address: form.address,
-        city: form.city,
-        state: form.state,
-        country: form.country,
-        postalCode: form.postalCode,
-        restaurantPhone: form.restaurantPhone,
-        restaurantEmail: form.restaurantEmail,
-        website: form.website,
-      });
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Auth/register-customer`,
+        {
+          email: form.email,
+          password: form.password,
+          firstName: form.firstName,
+          lastName: form.lastName,
+          phoneNumber: form.phoneNumber,
+          name: form.name,
+          description: form.description,
+          address: form.address,
+          city: form.city,
+          state: form.state,
+          country: form.country,
+          postalCode: form.postalCode,
+          restaurantPhone: form.restaurantPhone,
+          restaurantEmail: form.restaurantEmail,
+          website: form.website,
+        },
+        {
+          headers: {
+            "ngrok-skip-browser-warning": "true",
+          },
+        }
+      );
 
       // Thành công: Hiện alert và chuyển trang
       window.alert("Đăng ký thành công! Bạn sẽ được chuyển tới trang quản lý nhà hàng.");
@@ -96,6 +104,7 @@ export default function RegisterPage() {
       setLoading(false);
     }
   }
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-orange-50 to-white p-4">

@@ -23,6 +23,7 @@ export async function fetchRestaurantTables(): Promise<RestaurantTable[]> {
         method: "GET",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "ngrok-skip-browser-warning": "true"
         },
     });
 
@@ -39,6 +40,7 @@ export async function addTable(formData: FormData) {
         method: "POST",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "ngrok-skip-browser-warning": "true"
         },
         body: formData,
     });

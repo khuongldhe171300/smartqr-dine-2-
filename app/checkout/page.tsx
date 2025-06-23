@@ -85,6 +85,7 @@ export default function CheckoutPage() {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Restaurant/owner`, {
           headers: {
             Authorization: `Bearer ${token}`,
+            "ngrok-skip-browser-warning": "true"
           },
         })
         if (res.ok) {

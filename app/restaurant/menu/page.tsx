@@ -95,6 +95,7 @@ export default function RestaurantMenu() {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Menu/categories`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "ngrok-skip-browser-warning": "true"
           },
         });
         if (!res.ok) throw new Error("Không thể tải danh mục món ăn");

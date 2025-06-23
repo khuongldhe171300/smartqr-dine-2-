@@ -2,6 +2,7 @@ export async function fetchQrCodes() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Tables`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "ngrok-skip-browser-warning": "true"
         },
     });
 
@@ -23,6 +24,7 @@ export async function createQrCodeForTable(tableNumber: string) {
         method: "POST",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "ngrok-skip-browser-warning": "true"
         },
         body: formData,
     });
