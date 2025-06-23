@@ -41,10 +41,10 @@ export default function BlogPage() {
     const fetchData = async () => {
       try {
         const [featuredRes, listRes, categoryRes, tagRes] = await Promise.all([
-          axios.get("https://localhost:7082/api/Blog/top-viewed"),
-          axios.get("https://localhost:7082/api/Blog/GetAll"),
-          axios.get("https://localhost:7082/api/Blog/categories-blog"),
-          axios.get("https://localhost:7082/api/Blog/tags-blog")
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/top-viewed`),
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/GetAll`),
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/categories-blog`),
+          axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/tags-blog`)
         ])
 
         setFeaturedPost(featuredRes.data)

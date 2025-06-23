@@ -13,6 +13,6 @@ export async function loginApi(email: string, password: string) {
         throw new Error(error.message || "Login failed");
     }
 
-    return res.json(); // { token, userId, role }
+    return res.json();
 }
 

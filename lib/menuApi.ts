@@ -43,7 +43,7 @@ interface AddMenuItemRequest {
 
 // lib/menuApi.ts
 export async function addMenuItem(formData: FormData) {
-    const res = await fetch("https://localhost:7082/api/Menu/items", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Menu/items`, {
         method: "POST",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

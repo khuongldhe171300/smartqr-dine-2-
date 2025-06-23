@@ -11,6 +11,6 @@ export const fetchDashboardStats = async (): Promise<DashboardStats> => {
     const api = axios.create({
         baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
     });
-    const { data } = await api.get<DashboardStats>(`/api/Admin/dashboard/stats`);
+    const { data } = await api.get<DashboardStats>(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Admin/dashboard/stats`);
     return data;
 };
