@@ -1,115 +1,90 @@
+"use client"
+
 import Link from "next/link"
-import { Facebook, Instagram, Twitter } from "lucide-react"
+import { QrCode, Mail, Phone, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-100 py-12">
-      <div className="container px-4 md:px-6">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="h-8 w-8 bg-orange-500 rounded-md flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-white"
-                >
-                  <rect width="6" height="6" x="3" y="3" rx="1" />
-                  <rect width="6" height="6" x="15" y="3" rx="1" />
-                  <rect width="6" height="6" x="3" y="15" rx="1" />
-                  <path d="M15 15h6v6h-6z" />
-                  <path d="M10 3v18" />
-                  <path d="M3 10h18" />
-                </svg>
-              </div>
-              <span className="text-xl font-bold">SmartQR Dine</span>
-            </div>
-            <p className="text-gray-500">
-              Giải pháp đặt món thông minh qua QR code cho nhà hàng, quán ăn, chuỗi cà phê.
+    <footer className="bg-gray-900 text-white">
+      <div className="container mx-auto px-4 py-12 md:px-6 max-w-7xl">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          {/* Brand */}
+          <div className="space-y-4 animate-fade-in-up">
+            <Link href="/" className="flex items-center space-x-2 hover-scale">
+              <QrCode className="h-8 w-8 text-orange-500" />
+              <span className="text-xl font-bold">Quét là xong</span>
+            </Link>
+            <p className="text-gray-400 leading-relaxed">
+              Giải pháp đặt món thông minh qua QR code cho nhà hàng. Tăng hiệu quả phục vụ và trải nghiệm khách hàng.
             </p>
-            <div className="flex space-x-4">
-              <Link href="#" className="text-gray-500 hover:text-orange-500">
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-gray-500 hover:text-orange-500">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="text-gray-500 hover:text-orange-500">
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-            </div>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Sản phẩm</h3>
+
+          {/* Product */}
+          <div className="space-y-4 animate-fade-in-up stagger-1">
+            <h3 className="text-lg font-semibold">Sản phẩm</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/features" className="text-gray-500 hover:text-orange-500">
+                <Link href="/features" className="text-gray-400 hover:text-orange-400 transition-colors hover-scale">
                   Tính năng
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="text-gray-500 hover:text-orange-500">
+                <Link href="/pricing" className="text-gray-400 hover:text-orange-400 transition-colors hover-scale">
                   Bảng giá
                 </Link>
               </li>
               <li>
-                <Link href="/demo" className="text-gray-500 hover:text-orange-500">
-                  Dùng thử
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="text-gray-500 hover:text-orange-500">
-                  Câu hỏi thường gặp
+                <Link href="/demo" className="text-gray-400 hover:text-orange-400 transition-colors hover-scale">
+                  Demo
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Hỗ trợ</h3>
+
+          {/* Company */}
+          <div className="space-y-4 animate-fade-in-up stagger-2">
+            <h3 className="text-lg font-semibold">Công ty</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/contact" className="text-gray-500 hover:text-orange-500">
+                <Link href="/blog" className="text-gray-400 hover:text-orange-400 transition-colors hover-scale">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-400 hover:text-orange-400 transition-colors hover-scale">
                   Liên hệ
                 </Link>
               </li>
               <li>
-                <Link href="/support" className="text-gray-500 hover:text-orange-500">
-                  Trung tâm hỗ trợ
-                </Link>
-              </li>
-              <li>
-                <Link href="/docs" className="text-gray-500 hover:text-orange-500">
-                  Tài liệu hướng dẫn
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-gray-500 hover:text-orange-500">
-                  Điều khoản sử dụng
+                <Link href="/support" className="text-gray-400 hover:text-orange-400 transition-colors hover-scale">
+                  Hỗ trợ
                 </Link>
               </li>
             </ul>
           </div>
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">Liên hệ</h3>
+
+          {/* Contact */}
+          <div className="space-y-4 animate-fade-in-up stagger-3">
+            <h3 className="text-lg font-semibold">Liên hệ</h3>
             <ul className="space-y-2">
-              <li className="text-gray-500">Email: contact@smartqrdine.com</li>
-              <li className="text-gray-500">Hotline: 1900 xxxx</li>
-              <li className="text-gray-500">Địa chỉ: 123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh</li>
+              <li className="flex items-center space-x-2">
+                <Phone className="h-4 w-4 text-orange-500 hover-rotate" />
+                <span className="text-gray-400">1900 xxxx</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <Mail className="h-4 w-4 text-orange-500 hover-rotate" />
+                <span className="text-gray-400">contact@smartqrdine.com</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <MapPin className="h-4 w-4 text-orange-500 hover-rotate" />
+                <span className="text-gray-400">TP. Hồ Chí Minh</span>
+              </li>
             </ul>
           </div>
         </div>
-        <div className="mt-12 border-t pt-6 text-center text-gray-500">
-          <p>© 2024 SmartQR Dine. Tất cả quyền được bảo lưu.</p>
+
+        <div className="mt-8 border-t border-gray-800 pt-8 text-center text-gray-400 animate-fade-in-up">
+          <p>&copy; 2024 Quét là xong. Tất cả quyền được bảo lưu.</p>
         </div>
       </div>
     </footer>

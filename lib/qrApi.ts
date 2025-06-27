@@ -36,4 +36,3 @@ export async function createQrCodeForTable(tableNumber: string) {
 
     return res.json(); // { message: "Thêm qr thành công", tableId: ... }
 }
-

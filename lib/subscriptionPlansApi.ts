@@ -58,4 +58,3 @@ export async function fetchSubscriptionPlanById(id: number) {
     if (!res.ok) throw new Error("Không thể lấy gói đăng ký");
     return res.json();
 }
-

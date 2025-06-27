@@ -16,4 +16,3 @@ export async function loginApi(email: string, password: string) {
 
     return res.json();
 }
-
