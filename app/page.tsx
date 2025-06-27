@@ -25,9 +25,8 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6 relative max-w-7xl">
           <div
             ref={heroAnimation.ref}
-            className={`flex flex-col lg:flex-row gap-8 lg:gap-16 items-center transition-all duration-1000 ${
-              heroAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`flex flex-col lg:flex-row gap-8 lg:gap-16 items-center transition-all duration-1000 ${heroAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <div className="flex-1 space-y-6 text-center lg:text-left">
               <div className="inline-flex items-center rounded-full bg-orange-100 px-4 py-2 text-sm font-medium text-orange-700 animate-bounce-slow">
@@ -102,9 +101,8 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div
             ref={statsAnimation.ref}
-            className={`grid grid-cols-2 md:grid-cols-4 gap-8 transition-all duration-1000 ${
-              statsAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`grid grid-cols-2 md:grid-cols-4 gap-8 transition-all duration-1000 ${statsAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <div className="text-center hover-scale">
               <div className="text-3xl md:text-4xl font-bold text-orange-600 gradient-text">500+</div>
@@ -180,9 +178,8 @@ export default function Home() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className={`group flex flex-col items-center space-y-4 rounded-2xl border bg-white p-8 shadow-sm hover:shadow-lg transition-all duration-500 hover-lift hover-glow ${
-                  featuresAnimation.visibleItems.includes(index) ? "animate-fade-in-scale" : "opacity-0 scale-95"
-                }`}
+                className={`group flex flex-col items-center space-y-4 rounded-2xl border bg-white p-8 shadow-sm hover:shadow-lg transition-all duration-500 hover-lift hover-glow ${featuresAnimation.visibleItems.includes(index) ? "animate-fade-in-scale" : "opacity-0 scale-95"
+                  }`}
               >
                 <div className="rounded-full bg-orange-100 p-4 group-hover:bg-orange-200 transition-colors duration-300 hover-rotate">
                   <feature.icon className="h-8 w-8 text-orange-600" />
@@ -229,9 +226,8 @@ export default function Home() {
             ].map((step, index) => (
               <div
                 key={index}
-                className={`flex flex-col items-center space-y-6 text-center relative transition-all duration-700 ${
-                  stepsAnimation.visibleItems.includes(index) ? "animate-slide-in-bottom" : "opacity-0 translate-y-8"
-                }`}
+                className={`flex flex-col items-center space-y-6 text-center relative transition-all duration-700 ${stepsAnimation.visibleItems.includes(index) ? "animate-slide-in-bottom" : "opacity-0 translate-y-8"
+                  }`}
               >
                 <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-orange-400 to-orange-600 text-3xl font-bold text-white shadow-lg hover-scale animate-pulse-slow">
                   {step.step}
@@ -284,9 +280,8 @@ export default function Home() {
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className={`rounded-2xl bg-white p-8 shadow-sm border hover-lift hover-glow transition-all duration-500 ${
-                  testimonialsAnimation.visibleItems.includes(index) ? "animate-fade-in-scale" : "opacity-0 scale-95"
-                }`}
+                className={`rounded-2xl bg-white p-8 shadow-sm border hover-lift hover-glow transition-all duration-500 ${testimonialsAnimation.visibleItems.includes(index) ? "animate-fade-in-scale" : "opacity-0 scale-95"
+                  }`}
               >
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
@@ -359,6 +354,8 @@ export default function Home() {
       </section>
 
       <Footer />
+
+      <script src="https://subbot.io.vn/widget.js" api-key="8nFF17h26vdvcMyljmgHZtDCJWW4xFLy"></script>
     </div>
   )
 }
