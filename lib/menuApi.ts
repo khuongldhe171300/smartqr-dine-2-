@@ -47,6 +47,7 @@ export async function addMenuItem(formData: FormData) {
         method: "POST",
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "ngrok-skip-browser-warning": "true"
         },
         body: formData,
     });
