@@ -54,9 +54,8 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div
             ref={heroAnimation.ref}
-            className={`flex flex-col items-center justify-center space-y-6 text-center transition-all duration-1000 ${
-              heroAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`flex flex-col items-center justify-center space-y-6 text-center transition-all duration-1000 ${heroAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <div className="space-y-4">
               <div className="inline-flex items-center rounded-full bg-orange-100 px-4 py-2 text-sm font-medium text-orange-600 animate-bounce-slow">
@@ -67,8 +66,7 @@ export default function PricingPage() {
                 Chọn gói phù hợp với bạn
               </h1>
               <p className="max-w-3xl text-gray-600 text-lg leading-relaxed mx-auto animate-fade-in-up stagger-1">
-                Lựa chọn gói dịch vụ phù hợp với quy mô và nhu cầu của nhà hàng bạn. Tất cả gói đều có 14 ngày dùng thử
-                miễn phí.
+                Lựa chọn gói dịch vụ phù hợp với quy mô và nhu cầu của nhà hàng bạn. Tất cả gói đều có tặng thêm 14 ngày trải nghiệm khi đăng kí lần đầu .
               </p>
             </div>
           </div>
@@ -82,11 +80,9 @@ export default function PricingPage() {
             {plans.map((plan, index) => (
               <div
                 key={plan.planId}
-                className={`flex flex-col h-full rounded-2xl border-2 ${
-                  index === 1 ? "border-orange-300 shadow-lg scale-105 relative" : "border-gray-200 shadow-sm"
-                } bg-white p-8 hover:shadow-xl transition-all duration-500 hover-lift hover-glow ${
-                  plansAnimation.visibleItems.includes(index) ? "animate-fade-in-scale" : "opacity-0 scale-95"
-                }`}
+                className={`flex flex-col h-full rounded-2xl border-2 ${index === 1 ? "border-orange-300 shadow-lg scale-105 relative" : "border-gray-200 shadow-sm"
+                  } bg-white p-8 hover:shadow-xl transition-all duration-500 hover-lift hover-glow ${plansAnimation.visibleItems.includes(index) ? "animate-fade-in-scale" : "opacity-0 scale-95"
+                  }`}
               >
                 {index === 1 && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
@@ -137,9 +133,8 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div
             ref={tableAnimation.ref}
-            className={`text-center mb-12 transition-all duration-1000 ${
-              tableAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`text-center mb-12 transition-all duration-1000 ${tableAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">So sánh chi tiết các gói</h2>
             <p className="text-gray-600 text-lg animate-fade-in-up stagger-1">
@@ -214,9 +209,8 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div
             ref={faqAnimation.ref}
-            className={`text-center mb-12 transition-all duration-1000 ${
-              faqAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`text-center mb-12 transition-all duration-1000 ${faqAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <h2 className="text-3xl font-bold mb-4 animate-fade-in-up">Câu hỏi thường gặp</h2>
             <p className="text-gray-600 text-lg animate-fade-in-up stagger-1">
@@ -228,7 +222,7 @@ export default function PricingPage() {
               {
                 question: "Tôi có thể dùng thử trước khi đăng ký không?",
                 answer:
-                  "Có, chúng tôi cung cấp gói dùng thử miễn phí 14 ngày với đầy đủ tính năng để bạn có thể trải nghiệm dịch vụ trước khi quyết định.",
+                  "Có, chúng tôi sẽ cung cấp gói dùng 14 ngày tặng thêm với đầy đủ tính năng để bạn có thể trải nghiệm dịch vụ trước khi quyết định.",
               },
               {
                 question: "Tôi có thể nâng cấp hoặc hạ cấp gói dịch vụ không?",
@@ -263,7 +257,7 @@ export default function PricingPage() {
                 Bắt đầu ngay hôm nay
               </h2>
               <p className="max-w-2xl text-xl leading-relaxed text-orange-100 mx-auto animate-fade-in-up stagger-1">
-                Dùng thử miễn phí 14 ngày, không cần thẻ tín dụng. Hủy bất kỳ lúc nào.
+                Tặng thêm 14 ngày, không cần thẻ tín dụng. Hủy bất kỳ lúc nào.
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up stagger-2">

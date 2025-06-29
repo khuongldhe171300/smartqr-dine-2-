@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { Eye, EyeOff } from "lucide-react";
 import axios from "axios";
+import { toast } from "sonner";
 
 export default function RegisterPage() {
   const [form, setForm] = useState({
@@ -33,7 +34,6 @@ export default function RegisterPage() {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
@@ -48,18 +48,17 @@ export default function RegisterPage() {
 
   async function handleSubmit(e: any) {
     e.preventDefault();
-    setError("");
 
     if (!form.agree) {
-      setError("Bạn phải đồng ý với điều khoản!");
+      toast.error("❗Bạn phải đồng ý với điều khoản!");
       return;
     }
     if (!form.email || !form.password || !form.firstName || !form.lastName || !form.name) {
-      setError("Vui lòng nhập đầy đủ các trường bắt buộc.");
+      toast.error("❗Vui lòng nhập đầy đủ các trường bắt buộc.");
       return;
     }
     if (form.password !== form.confirmPassword) {
-      setError("Mật khẩu xác nhận không khớp!");
+      toast.error("❗Mật khẩu xác nhận không khớp!");
       return;
     }
 
@@ -91,20 +90,20 @@ export default function RegisterPage() {
         }
       );
 
-      // Thành công: Hiện alert và chuyển trang
-      window.alert("Đăng ký thành công! Bạn sẽ được chuyển tới trang quản lý nhà hàng.");
-      router.push("/restaurant/dashboard");
+      toast.success("🎉 Đăng ký thành công! Đang chuyển trang...");
 
+      setTimeout(() => {
+        router.push("/restaurant/dashboard");
+      }, 1500);
     } catch (err: any) {
-      setError(
+      toast.error(
         err?.response?.data?.message ||
-        "Đăng ký thất bại. Email có thể đã tồn tại hoặc lỗi máy chủ."
+        "❌ Đăng ký thất bại. Email có thể đã tồn tại hoặc lỗi máy chủ."
       );
     } finally {
       setLoading(false);
     }
   }
-
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-orange-50 to-white p-4">
@@ -112,7 +111,6 @@ export default function RegisterPage() {
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center space-x-2">
             <div className="h-8 w-8 bg-orange-500 rounded-md flex items-center justify-center">
-              {/* Icon */}
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                 <rect width="6" height="6" x="3" y="3" rx="1" />
@@ -126,6 +124,7 @@ export default function RegisterPage() {
             <span className="text-xl font-bold">Quét là xong</span>
           </Link>
         </div>
+
         <Card>
           <CardHeader>
             <CardTitle>Đăng ký tài khoản</CardTitle>
@@ -133,7 +132,6 @@ export default function RegisterPage() {
           </CardHeader>
           <form onSubmit={handleSubmit}>
             <CardContent className="space-y-4">
-              {error && <div className="text-red-600 text-sm">{error}</div>}
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label htmlFor="firstName">Họ *</Label>
@@ -171,7 +169,7 @@ export default function RegisterPage() {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="state">Tỉnh/Bang</Label>
-                  <Input id="state" value={form.state} onChange={handleChange} placeholder="" />
+                  <Input id="state" value={form.state} onChange={handleChange} />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -196,6 +194,7 @@ export default function RegisterPage() {
                 <Label htmlFor="website">Website</Label>
                 <Input id="website" value={form.website} onChange={handleChange} placeholder="https://yourrestaurant.com" />
               </div>
+
               <div className="space-y-2">
                 <Label htmlFor="password">Mật khẩu *</Label>
                 <div className="relative">
@@ -232,6 +231,7 @@ export default function RegisterPage() {
                   </Button>
                 </div>
               </div>
+
               <div className="flex items-center space-x-2">
                 <Checkbox id="agree" checked={form.agree} onCheckedChange={(v) => setForm(f => ({ ...f, agree: !!v }))} />
                 <Label htmlFor="agree" className="text-sm">
@@ -245,6 +245,7 @@ export default function RegisterPage() {
                   </Link>
                 </Label>
               </div>
+
               <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600" disabled={loading}>
                 {loading ? "Đang đăng ký..." : "Đăng ký"}
               </Button>
@@ -252,6 +253,16 @@ export default function RegisterPage() {
                 Đã có tài khoản?{" "}
                 <Link href="/login" className="text-orange-600 hover:underline">
                   Đăng nhập ngay
+                </Link>
+              </div>
+              <div className="text-center mt-4">
+                <Link href="/">
+                  <Button variant="outline" className="w-full flex items-center justify-center gap-2 border-orange-400 text-orange-600 hover:bg-orange-50">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7m-2 2v6a2 2 0 01-2 2h-3m-4 0H7a2 2 0 01-2-2v-6m0 0L3 12" />
+                    </svg>
+                    Quay về trang chủ
+                  </Button>
                 </Link>
               </div>
             </CardContent>

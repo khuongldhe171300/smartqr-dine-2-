@@ -37,7 +37,7 @@ export default function RestaurantQRCodes() {
   useEffect(() => {
     const fetchQrCodes = async () => {
       try {
-        const res = await fetch("https://localhost:7082/api/Tables", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Tables`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },

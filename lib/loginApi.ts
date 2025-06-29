@@ -9,10 +9,23 @@ export async function loginApi(email: string, password: string) {
         body: JSON.stringify({ email, password })
     });
 
-    if (!res.ok) {
-        const error = await res.json();
-        throw new Error(error.message || "Login failed");
+    let data: any;
+
+    try {
+        const contentType = res.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+            data = await res.json();
+        } else {
+            const text = await res.text();
+            data = { message: text };
+        }
+    } catch (err) {
+        throw new Error("Lỗi khi xử lý phản hồi từ máy chủ.");
     }
 
-    return res.json();
+    if (!res.ok) {
+        throw new Error(data.message || "Đăng nhập thất bại.");
+    }
+
+    return data;
 }

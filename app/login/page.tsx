@@ -9,38 +9,36 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Eye, EyeOff } from "lucide-react"
+import { toast } from "sonner"
 
 export default function LoginPage() {
   const router = useRouter()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [role, setRole] = useState("")
   const [showPassword, setShowPassword] = useState(false)
-  const [error, setError] = useState("")
 
   const handleLogin = async () => {
-    setError("")
     try {
       const { token, role: userRole, userId, fullName } = await loginApi(email, password)
 
-      // ✅ Lưu vào localStorage (nếu bạn cần dùng sau này)
       localStorage.setItem("token", token)
       localStorage.setItem("role", userRole)
       localStorage.setItem("email", email)
       localStorage.setItem("userId", userId.toString())
       localStorage.setItem("fullName", fullName)
-
-      // ✅ Lưu vào cookie để middleware đọc được
       document.cookie = `token=${token}; path=/`
 
-      // ✅ Chuyển trang theo role
-      if (userRole?.toLowerCase() === "admin") {
-        router.push("/admin/dashboard")
-      } else {
-        router.push("/restaurant/dashboard")
-      }
+      toast.success("✅ Đăng nhập thành công!")
+
+      setTimeout(() => {
+        if (userRole?.toLowerCase() === "admin") {
+          router.push("/admin/dashboard")
+        } else {
+          router.push("/restaurant/dashboard")
+        }
+      }, 1000)
     } catch (err: any) {
-      setError(err.message)
+      toast.error(err.message || "❌ Đăng nhập thất bại")
     }
   }
 
@@ -50,9 +48,17 @@ export default function LoginPage() {
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center space-x-2">
             <div className="h-8 w-8 bg-orange-500 rounded-md flex items-center justify-center">
-              {/* Icon */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                <rect width="6" height="6" x="3" y="3" rx="1" />
+                <rect width="6" height="6" x="15" y="3" rx="1" />
+                <rect width="6" height="6" x="3" y="15" rx="1" />
+                <path d="M15 15h6v6h-6z" />
+                <path d="M10 3v18" />
+                <path d="M3 10h18" />
+              </svg>
             </div>
-            <span className="text-xl font-bold">SmartQR Dine</span>
+            <span className="text-xl font-bold">Quét là xong</span>
           </Link>
         </div>
 
@@ -91,7 +97,6 @@ export default function LoginPage() {
                 </Button>
               </div>
             </div>
-            {error && <p className="text-sm text-red-600">{error}</p>}
             <Button onClick={handleLogin} className="w-full bg-orange-500 hover:bg-orange-600">
               Đăng nhập
             </Button>
@@ -101,6 +106,17 @@ export default function LoginPage() {
                 Đăng ký ngay
               </Link>
             </div>
+            <div className="text-center mt-4">
+              <Link href="/">
+                <Button variant="outline" className="w-full flex items-center justify-center gap-2 border-orange-400 text-orange-600 hover:bg-orange-50">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7m-2 2v6a2 2 0 01-2 2h-3m-4 0H7a2 2 0 01-2-2v-6m0 0L3 12" />
+                  </svg>
+                  Quay về trang chủ
+                </Button>
+              </Link>
+            </div>
+
           </CardContent>
         </Card>
       </div>

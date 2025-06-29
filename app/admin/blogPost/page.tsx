@@ -14,12 +14,15 @@ import { Search, PlusCircle, Eye, Edit2, Trash2 } from "lucide-react"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import Link from "next/link"
+import { toast } from "sonner"
+
 
 interface BlogPost {
   postId: number
   title: string
   excerpt: string
   publishedAt: string
+  isPublished: true | false
   viewCount: number
   author?: string
   categoryIds: string
@@ -36,6 +39,7 @@ export default function AdminBlogs() {
     excerpt: "",
     content: "",
     featuredImageURL: "",
+    viewCount: 0,
     isPublished: false,
     publishedAt: "",
     categoryIDs: "[]",
@@ -45,14 +49,14 @@ export default function AdminBlogs() {
   const [tags, setTags] = useState<{ tagId: number, name: string }[]>([])
 
   const loadPosts = () => {
-    axios.get("https://localhost:7082/api/Blog/GetAll")
+    axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/GetAll`)
       .then(res => setPosts(res.data))
       .catch(err => console.error("Lỗi khi lấy blog:", err))
   }
 
   const loadSelectData = () => {
-    axios.get("https://localhost:7082/api/Blog/categories-blog").then(res => setCategories(res.data))
-    axios.get("https://localhost:7082/api/Blog/tags-blog").then(res => setTags(res.data))
+    axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/categories-blog`).then(res => setCategories(res.data))
+    axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/tags-blog`).then(res => setTags(res.data))
   }
 
   useEffect(() => {
@@ -66,6 +70,7 @@ export default function AdminBlogs() {
       title: "",
       excerpt: "",
       content: "",
+      viewCount: 0,
       featuredImageURL: "",
       isPublished: false,
       publishedAt: "",
@@ -78,13 +83,14 @@ export default function AdminBlogs() {
   const openEditForm = (id: number) => {
     setEditingId(id)
     loadSelectData()
-    axios.get(`https://localhost:7082/api/Blog/${id}`)
+    axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/${id}`)
       .then(res => {
         const d = res.data
         setFormData({
           title: d.title,
           excerpt: d.excerpt,
           content: d.content,
+          viewCount: d.viewCount,
           featuredImageURL: d.featuredImageUrl,
           isPublished: d.isPublished,
           publishedAt: d.publishedAt,
@@ -106,16 +112,15 @@ export default function AdminBlogs() {
   const handleSubmit = async () => {
     try {
       if (editingId) {
-        await axios.put(`https://localhost:7082/api/Blog/${editingId}`, {
+        await axios.put(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/${editingId}`, {
           postId: editingId,
           slug: formData.title.toLowerCase().replace(/\s+/g, "-"),
-          viewCount: 0,
           updatedAt: new Date().toISOString(),
           ...formData
         })
-        alert("Cập nhật thành công")
+        toast.success("Cập nhật bài viết thành công")
       } else {
-        await axios.post("https://localhost:7082/api/Blog/create", {
+        await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Blog/create`, {
           title: formData.title,
           slug: formData.title.toLowerCase().replace(/\s+/g, "-"),
           content: formData.content,
@@ -131,7 +136,7 @@ export default function AdminBlogs() {
           }
         })
 
-        alert("Tạo mới thành công")
+        toast.success("Tạo bài viết mới thành công")
       }
       loadPosts()
       setIsDialogOpen(false)
@@ -185,7 +190,10 @@ export default function AdminBlogs() {
                           <TableCell>{post.author || "Admin"}</TableCell>
                           <TableCell>{post.viewCount}</TableCell>
                           <TableCell>{post.publishedAt?.split("T")[0]}</TableCell>
-                          <TableCell><Badge className={post.publishedAt === "1" ? "bg-green-500" : "bg-yellow-500"}>{post.publishedAt === "published" ? "Đã xuất bản" : "Bản nháp"}</Badge></TableCell>
+                          <TableCell><Badge className={post.isPublished ? "bg-green-500" : "bg-yellow-500"}>
+                            {post.isPublished ? "Đã xuất bản" : "Bản nháp"}
+                          </Badge>
+                          </TableCell>
                           <TableCell className="text-right">
                             <div className="flex justify-end space-x-2">
                               <Link href={`/blog/${post.postId}`}><Button size="sm" variant="outline"><Eye className="h-4 w-4 mr-1" />Xem</Button></Link>
@@ -213,6 +221,12 @@ export default function AdminBlogs() {
               <Textarea name="content" placeholder="Nội dung" value={formData.content} onChange={handleChange} />
               <Input name="featuredImageURL" placeholder="URL ảnh đại diện" value={formData.featuredImageURL} onChange={handleChange} />
               <Input name="publishedAt" type="datetime-local" value={formData.publishedAt} onChange={handleChange} />
+              <Input
+                type="number"
+                name="viewCount"
+                value={formData.viewCount}
+                onChange={handleChange}
+              />
               <label className="flex items-center space-x-2">
                 <input type="checkbox" name="isPublished" checked={formData.isPublished} onChange={handleChange} />
                 <span>Xuất bản</span>

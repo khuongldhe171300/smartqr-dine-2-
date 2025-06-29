@@ -373,7 +373,7 @@ export default function SubscriptionSuccess() {
                         </div>
                     </div>
                     <h1 className="text-4xl font-bold text-gray-900 mb-2">
-                        {isFromVnPay ? "Thanh toán thành công!" : "Chào mừng đến với SmartQR Dine!"}
+                        {isFromVnPay ? "Thanh toán thành công!" : "Chào mừng đến với Quét là xong!"}
                     </h1>
                     <p className="text-xl text-gray-600">
                         {isFromVnPay
@@ -542,7 +542,7 @@ export default function SubscriptionSuccess() {
                                 <Link href="/docs">Xem hướng dẫn</Link>
                             </Button>
                             <Button variant="outline" asChild>
-                                <Link href="mailto:support@smartqrdine.com">Email hỗ trợ</Link>
+                                <Link href="mailto:khuongld2909@gmail.com">Email hỗ trợ</Link>
                             </Button>
                         </div>
                     </CardContent>

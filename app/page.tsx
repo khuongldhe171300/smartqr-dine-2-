@@ -89,7 +89,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
               <div className="absolute -top-4 -right-4 bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg animate-bounce-slow">
-                Miễn phí 14 ngày
+                Tặng thêm 14 ngày
               </div>
             </div>
           </div>
@@ -338,7 +338,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center gap-8 pt-8 animate-fade-in-up stagger-3">
               <div className="text-center hover-scale">
                 <div className="text-2xl font-bold">14 ngày</div>
-                <div className="text-orange-200">Dùng thử miễn phí</div>
+                <div className="text-orange-200">Miễn phí khi đăng kí gói bất kì</div>
               </div>
               <div className="text-center hover-scale">
                 <div className="text-2xl font-bold">24/7</div>

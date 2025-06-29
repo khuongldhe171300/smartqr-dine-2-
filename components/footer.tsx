@@ -69,15 +69,15 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-orange-500 hover-rotate" />
-                <span className="text-gray-400">1900 xxxx</span>
+                <span className="text-gray-400">0329919200</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-orange-500 hover-rotate" />
-                <span className="text-gray-400">contact@smartqrdine.com</span>
+                <span className="text-gray-400">khuongld2909@gmail.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-orange-500 hover-rotate" />
-                <span className="text-gray-400">TP. Hồ Chí Minh</span>
+                <span className="text-gray-400">Thôn 3, Thạch hòa, Thạch thất, Hà Nội</span>
               </li>
             </ul>
           </div>
