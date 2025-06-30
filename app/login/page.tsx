@@ -16,8 +16,10 @@ export default function LoginPage() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleLogin = async () => {
+    setLoading(true)
     try {
       const { token, role: userRole, userId, fullName } = await loginApi(email, password)
 
@@ -28,17 +30,20 @@ export default function LoginPage() {
       localStorage.setItem("fullName", fullName)
       document.cookie = `token=${token}; path=/`
 
-      toast.success("✅ Đăng nhập thành công!")
+      toast.success("✅ Đăng nhập thành công!", { duration: 1500 })
 
-      setTimeout(() => {
-        if (userRole?.toLowerCase() === "admin") {
-          router.push("/admin/dashboard")
-        } else {
-          router.push("/restaurant/dashboard")
-        }
-      }, 1000)
+      const lowerRole = userRole?.toLowerCase()
+      if (lowerRole === "admin") {
+        router.push("/admin/dashboard")
+      } else if (lowerRole === "restaurantowner") {
+        router.push("/restaurant/dashboard")
+      } else {
+        toast.error("❌ Vai trò không hợp lệ")
+      }
     } catch (err: any) {
-      toast.error(err.message || "❌ Đăng nhập thất bại")
+      toast.error(err.message || "❌ Đăng nhập thất bại", { duration: 2000 })
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -97,9 +102,14 @@ export default function LoginPage() {
                 </Button>
               </div>
             </div>
-            <Button onClick={handleLogin} className="w-full bg-orange-500 hover:bg-orange-600">
-              Đăng nhập
+            <Button
+              onClick={handleLogin}
+              className="w-full bg-orange-500 hover:bg-orange-600"
+              disabled={loading}
+            >
+              {loading ? "Đang đăng nhập..." : "Đăng nhập"}
             </Button>
+
             <div className="text-center text-sm">
               Chưa có tài khoản?{" "}
               <Link href="/register" className="text-orange-600 hover:underline">
@@ -116,7 +126,6 @@ export default function LoginPage() {
                 </Button>
               </Link>
             </div>
-
           </CardContent>
         </Card>
       </div>
