@@ -24,9 +24,8 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
           <div
             ref={heroAnimation.ref}
-            className={`flex flex-col items-center justify-center space-y-4 text-center transition-all duration-1000 ${
-              heroAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`flex flex-col items-center justify-center space-y-4 text-center transition-all duration-1000 ${heroAnimation.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl gradient-text">
@@ -47,9 +46,8 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div
               ref={formAnimation.ref}
-              className={`transition-all duration-1000 ${
-                formAnimation.isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
-              }`}
+              className={`transition-all duration-1000 ${formAnimation.isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+                }`}
             >
               <Card className="hover-lift hover-glow">
                 <CardHeader>
@@ -122,9 +120,8 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div
               ref={infoAnimation.ref}
-              className={`space-y-6 transition-all duration-1000 ${
-                infoAnimation.isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
-              }`}
+              className={`space-y-6 transition-all duration-1000 ${infoAnimation.isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
+                }`}
             >
               <Card className="hover-lift hover-glow animate-fade-in-up">
                 <CardHeader>
@@ -135,21 +132,21 @@ export default function ContactPage() {
                     <Phone className="h-5 w-5 text-orange-500 flex-shrink-0 hover-rotate" />
                     <div>
                       <p className="font-medium">Hotline</p>
-                      <p className="text-gray-500">1900 xxxx</p>
+                      <p className="text-gray-500">0329919200</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 animate-fade-in-left stagger-2">
                     <Mail className="h-5 w-5 text-orange-500 flex-shrink-0 hover-rotate" />
                     <div>
                       <p className="font-medium">Email</p>
-                      <p className="text-gray-500">contact@smartqrdine.com</p>
+                      <p className="text-gray-500">khuongld2909@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 animate-fade-in-left stagger-3">
                     <MapPin className="h-5 w-5 text-orange-500 flex-shrink-0 hover-rotate" />
                     <div>
                       <p className="font-medium">Địa chỉ</p>
-                      <p className="text-gray-500">123 Đường ABC, Quận XYZ, TP. Hồ Chí Minh</p>
+                      <p className="text-gray-500">Thôn 3 Thạch hòa, Thạch Thất, Hà Nội</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3 animate-fade-in-left stagger-4">

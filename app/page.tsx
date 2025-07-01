@@ -352,9 +352,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <Footer />
-
       <script src="https://subbot.io.vn/widget.js" api-key="8nFF17h26vdvcMyljmgHZtDCJWW4xFLy"></script>
     </div>
   )
