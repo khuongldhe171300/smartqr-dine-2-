@@ -20,7 +20,7 @@ const sidebarItems = [
   },
   {
     title: "Đơn hàng",
-    href: "/restaurant/orders",
+    href: "/restaurant/order",
     icon: ShoppingCart,
   },
   {

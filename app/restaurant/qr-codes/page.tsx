@@ -69,7 +69,7 @@ export default function RestaurantQRCodes() {
       const formData = new FormData()
       formData.append("tbId", newTableNumber)
 
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/Tables/qr-code-create/${newTableNumber}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Tables/qr-code-create/${newTableNumber}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
