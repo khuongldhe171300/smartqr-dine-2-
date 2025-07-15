@@ -42,7 +42,7 @@ export function useVnPay() {
 
             console.log("Sending VnPay payment request:", paymentData)
 
-            const response = await fetch("https://localhost:7082/api/Payment/CreatePaymentUrlVnpay", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Payment/CreatePaymentUrlVnpay`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

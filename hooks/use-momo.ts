@@ -42,7 +42,7 @@ export function useMomo() {
 
             console.log("Sending MoMo payment request:", paymentData)
 
-            const response = await fetch("https://localhost:7082/api/Payment", {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/Payment`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
