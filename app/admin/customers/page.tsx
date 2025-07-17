@@ -9,86 +9,37 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 
 export default function AdminCustomers() {
   const customers = [
-    {
-      id: 1,
-      name: "The Cofftea",
-      email: "thecofftea@restaurant.com",
-      phone: "0989892970",
-      plan: "Normal",
-      status: "active",
-      joinDate: "2026-06-11",
-      revenue: "₫199,000",
-    },
-    {
-      id: 2,
-      name: "May Coffee",
-      email: "maycoffee@gmail.com",
-      phone: "0987654321",
-      plan: "Normal",
-      status: "active",
-      joinDate: "2026-01-12",
-      revenue: "₫199,000",
-    },
-    {
-      id: 3,
-      name: "Lessas Fast Food",
-      email: "lessas@fastfood.com",
-      phone: "0335386652",
-      plan: "Normal",
-      status: "active",
-      joinDate: "2025-06-12",
-      revenue: "₫199,000",
-    },
-    {
-      id: 4,
-      name: "Cơm Việt",
-      email: "quan123@gmail.com",
-      phone: "0336543210",
-      plan: "Basic",
-      status: "active",
-      joinDate: "2025-06-15",
-      revenue: "₫99,000",
-    },
-    {
-      id: 5,
-      name: "Vượng Quán",
-      email: "quanvuong98@gmail.com",
-      phone: "0309340678",
-      plan: "Vip",
-      status: "active",
-      joinDate: "2025-06-14",
-      revenue: "₫299,000",
-    },
-    {
-      id: 6,
-      name: "Phở bò Nam Định",
-      email: "anhKhanh948@gmail.com",
-      phone: "0363540978",
-      plan: "Basic",
-      status: "active",
-      joinDate: "2025-06-15",
-      revenue: "₫99,000",
-    },
-    {
-      id: 7,
-      name: "Quán Nhậu Mạnh Hùng",
-      email: "anhHung0997@gmail.com",
-      phone: "0365543210",
-      plan: "Basic",
-      status: "active",
-      joinDate: "2025-06-16",
-      revenue: "₫99,000",
-    },
-    {
-      id: 8,
-      name: "Bún Bò Hoàng Huế",
-      email: "hoangHue1993@gmail.com",
-      phone: "0370698765",
-      plan: "Normal",
-      status: "active",
-      joinDate: "2025-06-16",
-      revenue: "₫199,000",
-    },
+    { id: 1, name: "The Cofftea", email: "thecofftea@restaurant.com", phone: "0989892970", plan: "Normal", status: "active", joinDate: "2026-06-11", revenue: "₫199,000" },
+    { id: 2, name: "May Coffee", email: "maycoffee@gmail.com", phone: "0987654321", plan: "Normal", status: "active", joinDate: "2026-01-12", revenue: "₫199,000" },
+    { id: 3, name: "Lessas Fast Food", email: "lessas@fastfood.com", phone: "0335386652", plan: "Normal", status: "active", joinDate: "2025-06-12", revenue: "₫199,000" },
+    { id: 4, name: "Cơm Việt", email: "quan123@gmail.com", phone: "0336543210", plan: "Basic", status: "active", joinDate: "2025-06-15", revenue: "₫99,000" },
+    { id: 5, name: "Vượng Quán", email: "quanvuong98@gmail.com", phone: "0309340678", plan: "VIP", status: "active", joinDate: "2025-06-14", revenue: "₫299,000" },
+    { id: 6, name: "Phở bò Nam Định", email: "anhKhanh948@gmail.com", phone: "0363540978", plan: "Basic", status: "active", joinDate: "2025-06-15", revenue: "₫99,000" },
+    { id: 7, name: "Quán Nhậu Mạnh Hùng", email: "anhHung0997@gmail.com", phone: "0365543210", plan: "Basic", status: "active", joinDate: "2025-06-16", revenue: "₫99,000" },
+    { id: 8, name: "Bún Bò Hoàng Huế", email: "hoangHue1993@gmail.com", phone: "0370698765", plan: "Normal", status: "active", joinDate: "2025-06-16", revenue: "₫199,000" },
+    { id: 9, name: "Bún Cá Ngọc Lâm", email: "ngoclam@gmail.com", phone: "0334567890", plan: "VIP", status: "active", joinDate: "2025-06-17", revenue: "₫299,000" },
+    { id: 10, name: "Cơm Văn Phòng Hoàng Cúc", email: "hoangcuc@gmail.com", phone: "0987654321", plan: "Basic", status: "active", joinDate: "2025-06-18", revenue: "₫99,000" },
+    { id: 11, name: "Quán Nhậu Quảng Bình", email: "quangbinh@gmail.com", phone: "0345678920", plan: "Normal", status: "active", joinDate: "2025-06-19", revenue: "₫199,000" },
+    { id: 12, name: "Com Vị Quế", email: "comvique@gmail.com", phone: "0387654321", plan: "VIP", status: "active", joinDate: "2025-06-20", revenue: "₫299,000" },
+    { id: 13, name: "Gạo Nếp", email: "gaonep@gmail.com", phone: "0376543210", plan: "Basic", status: "active", joinDate: "2025-06-21", revenue: "₫99,000" },
+    { id: 14, name: "Quán Cơm Thu Giang", email: "thuGiang@gmail.com", phone: "0345678901", plan: "Basic", status: "active", joinDate: "2025-06-22", revenue: "₫99,000" },
+    { id: 15, name: "Hải Sản Tiến Dũng", email: "tiendung@gmail.com", phone: "0339988776", plan: "VIP", status: "active", joinDate: "2025-06-23", revenue: "₫299,000" },
+    { id: 16, name: "Com Sạch Mỗi Ngày", email: "comsach@gmail.com", phone: "0376540987", plan: "Basic", status: "active", joinDate: "2025-06-24", revenue: "₫99,000" },
+    { id: 17, name: "Bếp Xưa", email: "bepxua@gmail.com", phone: "0332445566", plan: "Normal", status: "active", joinDate: "2025-06-25", revenue: "₫199,000" },
+    { id: 18, name: "My Lang Thang", email: "mylangthang@gmail.com", phone: "0336554433", plan: "Basic", status: "active", joinDate: "2025-06-26", revenue: "₫99,000" },
+    { id: 19, name: "Cơm Văn Phòng Hòa Bình", email: "hoabinh@gmail.com", phone: "0345678903", plan: "VIP", status: "active", joinDate: "2025-06-27", revenue: "₫299,000" },
+    { id: 20, name: "Quán Cơm Nhiều Món", email: "quanmon@gmail.com", phone: "0356885566", plan: "Normal", status: "active", joinDate: "2025-06-28", revenue: "₫199,000" },
+    { id: 21, name: "Bánh Mì Hai Chị Em", email: "banhmi@gmail.com", phone: "0366898888", plan: "Normal", status: "active", joinDate: "2025-06-29", revenue: "₫199,000" },
+    { id: 22, name: "Bánh Xèo Ngon", email: "banhxeo@gmail.com", phone: "0398765432", plan: "VIP", status: "active", joinDate: "2025-06-30", revenue: "₫299,000" },
+    { id: 23, name: "Quán Cơm Vạn Lộc", email: "comvanloc@gmail.com", phone: "0377654321", plan: "Basic", status: "active", joinDate: "2025-07-01", revenue: "₫99,000" },
+    { id: 24, name: "Hải Sản Thuận Phát", email: "thuanphat@gmail.com", phone: "0345678910", plan: "Normal", status: "active", joinDate: "2025-07-02", revenue: "₫199,000" },
+    { id: 25, name: "Quán Cơm Mới", email: "quancomoi@gmail.com", phone: "0367876543", plan: "VIP", status: "active", joinDate: "2025-07-03", revenue: "₫299,000" },
+    { id: 26, name: "Phở Lý Quốc Sư", email: "pholyquocsu@gmail.com", phone: "0398765432", plan: "Normal", status: "active", joinDate: "2025-07-04", revenue: "₫199,000" },
+    { id: 27, name: "Bún Chả Hà Nội", email: "buncha@gmail.com", phone: "0387654321", plan: "Basic", status: "active", joinDate: "2025-07-05", revenue: "₫99,000" },
+    { id: 28, name: "Quán Cơm Xanh", email: "comxanh@gmail.com", phone: "0365987766", plan: "VIP", status: "active", joinDate: "2025-07-06", revenue: "₫299,000" },
+    { id: 29, name: "Quán Bánh Bao Mẹ Ổi", email: "banhbao@gmail.com", phone: "0334569870", plan: "Normal", status: "active", joinDate: "2025-07-07", revenue: "₫199,000" },
+    { id: 30, name: "Quán Gà Nướng", email: "ganuong@gmail.com", phone: "0339876543", plan: "VIP", status: "active", joinDate: "2025-07-08", revenue: "₫299,000" },
+    { id: 31, name: "Quán Hủ Tiếu", email: "hutieu@gmail.com", phone: "0376543210", plan: "Basic", status: "active", joinDate: "2025-07-09", revenue: "₫99,000" },
   ]
 
   return (
@@ -158,19 +109,9 @@ export default function AdminCustomers() {
                       </TableCell>
                       <TableCell>
                         <Badge
-                          variant={
-                            customer.status === "active"
-                              ? "default"
-                              : customer.status === "trial"
-                                ? "secondary"
-                                : "destructive"
-                          }
+                          variant={customer.status === "active" ? "default" : customer.status === "trial" ? "secondary" : "destructive"}
                         >
-                          {customer.status === "active"
-                            ? "Hoạt động"
-                            : customer.status === "trial"
-                              ? "Dùng thử"
-                              : "Chờ duyệt"}
+                          {customer.status === "active" ? "Hoạt động" : customer.status === "trial" ? "Dùng thử" : "Chờ duyệt"}
                         </Badge>
                       </TableCell>
                       <TableCell>{customer.joinDate}</TableCell>

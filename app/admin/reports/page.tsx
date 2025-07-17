@@ -9,16 +9,15 @@ import { TrendingUp, DollarSign, Building2, Users, Download, Calendar } from "lu
 
 export default function AdminReports() {
   const revenueData = [
-
-    { month: "Tháng 6", revenue: 2485000, customers: 16, growth: 160 },
+    { month: "Tháng 6", revenue: 5469000, customers: 31, growth: 25 }, // Tổng doanh thu cho 31 khách hàng
   ]
 
   const topCustomers = [
-    { name: "Chuỗi FastFood", plan: "Premium", revenue: 23940000, restaurants: 15, growth: 28 },
-    { name: "Nhà hàng ABC", plan: "Premium", revenue: 19980000, restaurants: 8, growth: 15 },
-    { name: "Coffee Chain XYZ", plan: "Standard", revenue: 14985000, restaurants: 12, growth: 22 },
-    { name: "Restaurant Group", plan: "Premium", revenue: 11988000, restaurants: 6, growth: 8 },
-    { name: "Local Bistro", plan: "Standard", revenue: 8991000, restaurants: 9, growth: 35 },
+    { name: "Chuỗi FastFood", plan: "Premium", revenue: 2394000, restaurants: 15, growth: 30 },
+    { name: "Nhà hàng ABC", plan: "Premium", revenue: 1998000, restaurants: 8, growth: 20 },
+    { name: "Coffee Chain XYZ", plan: "Standard", revenue: 1498500, restaurants: 12, growth: 25 },
+    { name: "Restaurant Group", plan: "Premium", revenue: 1198800, restaurants: 6, growth: 15 },
+    { name: "Local Bistro", plan: "Standard", revenue: 899100, restaurants: 9, growth: 35 },
   ]
 
   const planPerformance = [
@@ -73,8 +72,8 @@ export default function AdminReports() {
                 <DollarSign className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">₫2.485.000</div>
-                <p className="text-xs text-muted-foreground">+16.8% so với tháng trước</p>
+                <div className="text-2xl font-bold">{formatCurrency(5469000)}</div>
+                <p className="text-xs text-muted-foreground">+25% so với tháng trước</p>
               </CardContent>
             </Card>
             <Card>
@@ -83,8 +82,8 @@ export default function AdminReports() {
                 <Building2 className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">16</div>
-                <p className="text-xs text-muted-foreground">+160% so với tháng trước</p>
+                <div className="text-2xl font-bold">31</div>
+                <p className="text-xs text-muted-foreground">+25% so với tháng trước</p>
               </CardContent>
             </Card>
             <Card>
@@ -93,8 +92,8 @@ export default function AdminReports() {
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">6</div>
-                <p className="text-xs text-muted-foreground">44.5% tổng khách hàng</p>
+                <div className="text-2xl font-bold">12</div>
+                <p className="text-xs text-muted-foreground">38% tổng khách hàng</p>
               </CardContent>
             </Card>
             <Card>
@@ -103,7 +102,7 @@ export default function AdminReports() {
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">+16.8%</div>
+                <div className="text-2xl font-bold">+25%</div>
                 <p className="text-xs text-muted-foreground">Doanh thu hàng tháng</p>
               </CardContent>
             </Card>
@@ -138,8 +137,7 @@ export default function AdminReports() {
                               className={`flex items-center text-sm ${month.growth >= 0 ? "text-green-600" : "text-red-600"}`}
                             >
                               <TrendingUp className="h-3 w-3 mr-1" />
-                              {month.growth >= 0 ? "+" : ""}
-                              {month.growth}%
+                              {month.growth >= 0 ? "+" : ""}{month.growth}%
                             </div>
                           </div>
                         </div>
@@ -157,19 +155,19 @@ export default function AdminReports() {
                     <div className="space-y-4">
                       <div className="flex justify-between items-center">
                         <span>Doanh thu trung bình/tháng</span>
-                        <span className="font-bold">{formatCurrency(207083)}</span>
+                        <span className="font-bold">{formatCurrency(177000)}</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>Doanh thu/khách hàng TB</span>
-                        <span className="font-bold">{formatCurrency(155312)}</span>
+                        <span className="font-bold">{formatCurrency(177000)}</span>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>Tăng trưởng tháng 6</span>
-                        <Badge className="bg-green-500">+160%</Badge>
+                        <Badge className="bg-green-500">+25%</Badge>
                       </div>
                       <div className="flex justify-between items-center">
                         <span>Dự báo tháng tới</span>
-                        <span className="font-bold text-green-600">{formatCurrency(12500000)}</span>
+                        <span className="font-bold text-green-600">{formatCurrency(7500000)}</span>
                       </div>
                     </div>
                   </CardContent>
@@ -266,64 +264,6 @@ export default function AdminReports() {
                   </Table>
                 </CardContent>
               </Card>
-            </TabsContent>
-
-            <TabsContent value="growth">
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Xu hướng tăng trưởng</CardTitle>
-                    <CardDescription>Phân tích xu hướng phát triển</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center">
-                        <span>Tăng trưởng khách hàng mới</span>
-                        <Badge className="bg-green-500">+15%/tháng</Badge>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span>Tăng trưởng doanh thu</span>
-                        <Badge className="bg-green-500">+18%/tháng</Badge>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span>Tỷ lệ churn</span>
-                        <Badge variant="outline">2.3%</Badge>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span>Customer Lifetime Value</span>
-                        <span className="font-bold">{formatCurrency(15600000)}</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Dự báo 6 tháng tới</CardTitle>
-                    <CardDescription>Dự đoán dựa trên xu hướng hiện tại</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-4">
-                      <div className="flex justify-between items-center">
-                        <span>Dự báo khách hàng mới</span>
-                        <span className="font-bold text-green-600">+450</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span>Dự báo doanh thu</span>
-                        <span className="font-bold text-green-600">{formatCurrency(12500000000)}</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span>Tăng trưởng dự kiến</span>
-                        <Badge className="bg-green-500">+25%</Badge>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span>ROI dự kiến</span>
-                        <span className="font-bold text-green-600">340%</span>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
             </TabsContent>
           </Tabs>
         </main>
