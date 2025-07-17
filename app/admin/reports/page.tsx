@@ -82,7 +82,7 @@ export default function AdminReports() {
                 <Building2 className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">31</div>
+                <div className="text-2xl font-bold">245</div>
                 <p className="text-xs text-muted-foreground">+25% so với tháng trước</p>
               </CardContent>
             </Card>
@@ -92,7 +92,7 @@ export default function AdminReports() {
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">12</div>
+                <div className="text-2xl font-bold">69</div>
                 <p className="text-xs text-muted-foreground">38% tổng khách hàng</p>
               </CardContent>
             </Card>
