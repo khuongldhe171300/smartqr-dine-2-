@@ -553,7 +553,7 @@ export default function CheckoutPage() {
                           </p>
                           <div className="bg-pink-100 p-3 rounded border border-pink-300">
                             <p className="text-xs text-pink-800">
-                              <strong>Lưu ý:</strong> Đảm bảo bạn đã cài đ��t ứng dụng MoMo trên điện thoại và đã đăng
+                              <strong>Lưu ý:</strong> Đảm bảo bạn đã cài đặt ứng dụng MoMo trên điện thoại và đã đăng
                               nhập.
                             </p>
                           </div>
